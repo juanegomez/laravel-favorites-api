@@ -23,7 +23,7 @@ Una API RESTful para gestionar favoritos de usuarios construida con Laravel y La
 
 1. Clona el repositorio:
    ```bash
-   git clone [repository-url]
+   git clone [https://github.com/juanegomez/laravel-favorites-api.git]
    cd laravel-favorites-api
    ```
 
