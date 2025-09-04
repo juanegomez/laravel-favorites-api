@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\Auth\PasswordResetController;
 
 // User Routes
 Route::post('register', [UsersController::class, 'store']);
@@ -12,6 +13,10 @@ Route::post('register', [UsersController::class, 'store']);
 // Auth Routes
 Route::post('login', [AuthController::class, 'login']);
 Route::post('logout',[AuthController::class,'logout'])->middleware('auth:sanctum');
+
+// Password Reset Routes
+Route::post('forgot-password', [PasswordResetController::class, 'forgotPassword']);
+Route::post('reset-password', [PasswordResetController::class, 'resetPassword']);
 
 // Favorite Routes
 Route::middleware('auth:sanctum')->group(function () {

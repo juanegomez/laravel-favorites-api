@@ -6,6 +6,7 @@ Una API RESTful para gestionar favoritos de usuarios construida con Laravel y La
 
 - Registro y autenticación de usuarios con Laravel Sanctum
 - Autenticación basada en JWT
+- Restablecimiento de contraseña con tokens seguros
 - Operaciones CRUD para favoritos de usuarios
 - Filtrado y paginación de favoritos
 - Soporte CORS para integración con frontend
@@ -116,6 +117,59 @@ SESSION_DOMAIN=localhost
 - `POST /api/register` - Registrar un nuevo usuario
 - `POST /api/login` - Iniciar sesión
 - `POST /api/logout` - Cerrar sesión (requiere autenticación)
+
+#### Registro de Usuario
+
+```http
+POST /api/register
+
+{
+    "name": "Nombre de Usuario",
+    "email": "usuario@ejemplo.com",
+    "password": "Contraseña123!",
+    "password_confirmation": "Contraseña123!"
+}
+```
+
+#### Inicio de Sesión
+
+```http
+POST /api/login
+
+{
+    "email": "usuario@ejemplo.com",
+    "password": "Contraseña123!"
+}
+```
+
+#### Solicitar Restablecimiento de Contraseña
+
+```http
+POST /api/forgot-password
+
+{
+    "email": "usuario@ejemplo.com"
+}
+```
+
+#### Restablecer Contraseña
+
+```http
+POST /api/reset-password
+
+{
+    "email": "usuario@ejemplo.com",
+    "token": "token_recibido_por_email",
+    "password": "NuevaContraseña123!",
+    "password_confirmation": "NuevaContraseña123!"
+}
+```
+
+**Nota sobre la contraseña:** La contraseña debe tener al menos 8 caracteres y contener al menos:
+- Una letra mayúscula
+- Una letra minúscula
+- Un número
+- Un carácter especial (ej: @$!%*#?&)
 
 ### Favoritos
 
