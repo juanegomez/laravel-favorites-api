@@ -15,7 +15,6 @@ Una API RESTful para gestionar favoritos de usuarios construida con Laravel y La
 - PHP >= 8.2
 - Composer
 - SQLite (recomendado para desarrollo local)
-- Node.js y NPM (para recursos de frontend si es necesario)
 
 ## Instalación
 
