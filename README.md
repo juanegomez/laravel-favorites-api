@@ -12,8 +12,10 @@ Una API RESTful para gestionar favoritos de usuarios construida con Laravel y La
 
 ## Requisitos Previos
 
-- PHP >= 8.2
-- Composer
+- PHP >= 8.3 (Recomendado versión 8.3.6 o superior)
+  - Extensión SQLite3 para PHP (necesaria para migraciones y operaciones con SQLite)
+- Composer (Recomendado versión 2.8.11 o superior)
+- Laravel Framework 12.28.0
 - SQLite (recomendado para desarrollo local)
 
 ## Instalación
@@ -26,7 +28,19 @@ Una API RESTful para gestionar favoritos de usuarios construida con Laravel y La
    cd laravel-favorites-api
    ```
 
-2. Instala las dependencias de PHP:
+2. Instala las dependencias de PHP y la extensión SQLite3:
+   ```bash
+   # En Ubuntu/Debian
+   sudo apt-get install php-sqlite3
+   
+   # En macOS (usando Homebrew)
+   brew install php-sqlite
+   
+   # En Windows (usando XAMPP/WAMP, habilita la extensión en php.ini)
+   ; Busca y descomenta esta línea en tu php.ini
+   extension=sqlite3
+   
+   # Luego instala las dependencias de Composer:
    ```bash
    composer install
    ```
@@ -61,12 +75,7 @@ Una API RESTful para gestionar favoritos de usuarios construida con Laravel y La
    php artisan migrate --seed
    ```
 
-8. Genera la clave secreta JWT:
-   ```bash
-   php artisan jwt:secret
-   ```
-
-9. Inicia el servidor de desarrollo:
+8. Inicia el servidor de desarrollo:
    ```bash
    php artisan serve
    ```

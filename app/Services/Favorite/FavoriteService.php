@@ -17,17 +17,18 @@ class FavoriteService
     }
 
     /**
-     * Get filtered and paginated favorites
+     * Get filtered and paginated favorites for a specific user
      *
      * @param array $filters
+     * @param int $userId
      * @param int $perPage
      * @return \Illuminate\Pagination\LengthAwarePaginator
      */
-    public function getFilteredFavorites(array $filters = [], int $perPage = 15): LengthAwarePaginator
+    public function getFilteredFavorites(array $filters = [], int $userId, int $perPage = 15): LengthAwarePaginator
     {
-        $query = Favorite::query();
+        $query = Favorite::where('user_id', $userId);
         
-        // Aplicar filtros
+        // Aplicar filtros adicionales
         $query = $this->favoriteFilter->apply($query, $filters);
         
         return $query->orderBy('created_at', 'desc')

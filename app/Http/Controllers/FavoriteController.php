@@ -29,9 +29,9 @@ class FavoriteController extends Controller
     public function index(FavoritesRequest $request): JsonResponse
     {
         $validated = $request->validated();
+        $userId = Auth::id();
 
         $filters = [
-            'user_id' => Auth::id(),
             'search' => $validated['search'] ?? null,
             'name' => $validated['name'] ?? null,
             'description' => $validated['description'] ?? null
@@ -39,7 +39,7 @@ class FavoriteController extends Controller
 
         $perPage = $validated['per_page'] ?? 15;
 
-        $favorites = $this->favoriteService->getFilteredFavorites($filters, $perPage);
+        $favorites = $this->favoriteService->getFilteredFavorites($filters, $userId, $perPage);
 
         return response()->json([
             'status' => 1,
