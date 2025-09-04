@@ -131,7 +131,7 @@ php artisan test
 Puedes usar las siguientes credenciales de prueba (se crean automáticamente con el seeder):
 
 - **Email:** test@example.com
-- **Contraseña:** password
+- **Contraseña:** Password123@
 
 O registra un nuevo usuario a través del endpoint `/api/register`.
 
