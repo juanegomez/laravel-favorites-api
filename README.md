@@ -118,14 +118,6 @@ SESSION_DOMAIN=localhost
 - `DELETE /api/favorite/{id}` - Eliminar un favorito
 - `GET /api/favorites/ids` - Obtener todos los IDs de API favoritos del usuario autenticado
 
-## Pruebas
-
-Ejecuta las pruebas con:
-
-```bash
-php artisan test
-```
-
 ## Credenciales de Usuario de Prueba
 
 Puedes usar las siguientes credenciales de prueba (se crean automáticamente con el seeder):
